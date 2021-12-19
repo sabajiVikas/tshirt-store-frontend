@@ -28,24 +28,27 @@ const Menu = ({ history }) => (
           <strong>Cart</strong>
         </Link>
       </li>
-      <li className="nav-item">
-        <Link
-          style={currentTab(history, "/admin/dashboard")}
-          className="nav-link"
-          to="/admin/dashboard"
-        >
-          <strong>A Dashboard</strong>
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          style={currentTab(history, "/user/dashboard")}
-          className="nav-link"
-          to="/user/dashboard"
-        >
-          <strong>U Dashboard</strong>
-        </Link>
-      </li>
+      {isAuthenticated() && isAuthenticated().user.role === 1 ? (
+        <li className="nav-item">
+          <Link
+            style={currentTab(history, "/admin/dashboard")}
+            className="nav-link"
+            to="/admin/dashboard"
+          >
+            <strong>Dashboard</strong>
+          </Link>
+        </li>
+      ) : (
+        <li className="nav-item">
+          <Link
+            style={currentTab(history, "/user/dashboard")}
+            className="nav-link"
+            to="/user/dashboard"
+          >
+            <strong>Dashboard</strong>
+          </Link>
+        </li>
+      )}
       {!isAuthenticated() && (
         <>
           <li className="nav-item">
