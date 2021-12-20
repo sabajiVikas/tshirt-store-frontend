@@ -43,11 +43,6 @@ const AdminDashboard = () => {
               <strong>Manage Products</strong>
             </Link>
           </li>
-          <li className="list-group-item">
-            <Link to="/admin/orders" className="text-center text-success">
-              <strong>Manage Orders</strong>
-            </Link>
-          </li>
         </ul>
       </div>
     );
